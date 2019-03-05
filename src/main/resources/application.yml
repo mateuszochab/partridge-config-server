@@ -1,0 +1,20 @@
+---
+server:
+  port: 9091
+spring:
+  application:
+    name: partridge-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/mateuszochab/partridge-config"
+          search-paths:
+            - "*micr"
+          timeout: 4
+  profiles:
+    active: "prod"
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://partridge-eureka-server.cfapps.io/eureka/
